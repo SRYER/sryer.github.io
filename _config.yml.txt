@@ -1,4 +1,4 @@
-title: StephanMoller.com
+title: Stephan Møller
 description: Stuff I like to write about
 show_downloads: false
 google_analytics:
