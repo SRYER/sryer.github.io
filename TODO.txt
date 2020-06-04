@@ -1,0 +1,3 @@
+- Kontakt-information/formular
+- Analytics-konto
+- Komment-tråd til hver blog post
