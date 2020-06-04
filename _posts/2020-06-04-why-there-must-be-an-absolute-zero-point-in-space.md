@@ -8,7 +8,7 @@ I have been thinking about a subject a couple of times, latest at launch at work
 My theory:
 
 ```
-There MUST be an absolute zero point - but not necessarily easy to measure.
+There MUST be an absolute zero point - but not necessarily easy (nor possible) to measure.
 ```
 
 ### Einstein said...
