@@ -1,3 +1,3 @@
 - Kontakt-information/formular
 - Analytics-konto
-- Komment-tråd til hver blog post
+- Komment-tråd til hver blog post med https://disqus.com/
