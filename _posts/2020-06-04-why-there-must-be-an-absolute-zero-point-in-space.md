@@ -3,7 +3,9 @@ layout: post
 tags: ["philosophy"]
 ---
 
-I have been thinking about a subject a couple of times, latest at launch at work today - Is all movement in space relative or is there an absolute point where things do simply NOT move?
+NOTE: This post is all wrong. I got the answer from a stackexchange-site and posted the update in the end of this post.
+
+I have been thinking about a subject a couple of times, latest at lunch at work today - Is all movement in space relative or is there an absolute point where things do simply NOT move?
 
 My theory:
 
@@ -41,3 +43,9 @@ So, how do we measure this? I really don't know. Maybe we will never be able to.
 I am fully aware that lots of people actually work and study this area quite intensively. So, I would expect that an expert on this subject may be able to pin point what I might be missing. So this is my invite to join the discussion in the thread below.
 
 I look forward to hearing your thoughts in the matter.
+
+### UPDATE: I was wrong
+
+I copy pasted this blog entry as a post [here](https://astronomy.stackexchange.com/questions/36432/absolute-zero-speed-in-space), and a kind person was pointing out, that in fact that statement 1. is wrong: The "feeling" of time, or should one say, the observation of time, is relative to the observer. This means that both persons will observe that the other persons time passes slower.
+
+Apparently, this is what the [Twin paradox](https://en.wikipedia.org/wiki/Twin_paradox#:~:text=In%20physics%2C%20the%20twin%20paradox,on%20Earth%20has%20aged%20more.) is all about.
