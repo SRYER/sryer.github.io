@@ -48,4 +48,8 @@ I look forward to hearing your thoughts in the matter.
 
 I copy pasted this blog entry as a post [here](https://astronomy.stackexchange.com/questions/36432/absolute-zero-speed-in-space), and a kind person was pointing out, that in fact that statement 1. is wrong: The "feeling" of time, or should one say, the observation of time, is relative to the observer. This means that both persons will observe that the other persons time passes slower.
 
+The funny thing is, if I had just paid more attention to the quote from previous, that I cited, I would have known. So lets zoom in on the quote from Albert Einstein:
+
+> "...it can vary for different observers depending on your speed..."
+
 Apparently, this is what the [Twin paradox](https://en.wikipedia.org/wiki/Twin_paradox#:~:text=In%20physics%2C%20the%20twin%20paradox,on%20Earth%20has%20aged%20more.) is all about.
