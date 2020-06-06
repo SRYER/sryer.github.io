@@ -1,2 +1,17 @@
 
 - Analytics-konto
+
+Upcoming posts:
+- Lav bubble effekt i js
+	- Vis fps
+
+- VM med photoshop
+- Pladespilleren
+- SQL Connection Manager
+- SQL Custom typer
+- What I have learned as a CTO
+- Opdagelsen af code golf: https://codegolf.stackexchange.com/questions/205638/dont-do-not-lowercase-uppercase-this
+- Why you should never ask other people if there are gonna have kids
+- AI til at lave musik
+- Hell March Live-video: https://www.youtube.com/watch?v=TrqQxl5o3eg
+- Guitar Shred
