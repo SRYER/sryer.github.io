@@ -853,9 +853,6 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
 ```
 
 ```js
-
-```
-<canvas style="position: relative;" id="canvas_light_demo_5" width="600" height="300"></canvas>
 <script>
     (function(){
         var canvas = document.getElementById("canvas_light_demo_5");
@@ -874,6 +871,76 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
         
             var imgData = ctx.getImageData(0, 0, width, height);
             var data = imgData.data;            
+
+            // Create a single array containing all light sources
+            var allLights = staticLightSources.slice();
+            allLights.push(mousePosition);
+
+            // Update the data array
+            for(var x = 0; x < width; x++){
+
+                for(var y = 0; y < height; y++){
+
+                    var score = 0;
+                    for(var i = 0; i < allLights.length; i++){
+                        var currentLight = allLights[i];
+                        var distanceToLight = Math.sqrt((currentLight.x - x)*(currentLight.x - x) + (currentLight.y - y)*(currentLight.y - y));
+                        if(distanceToLight < 1){
+                            distanceToLight = 1; // Avoid division by 0 here
+                        }
+
+                        // Add value to score based on distance
+                        score = score + 100 / distanceToLight;
+					}
+
+                    var index = (y * width + x) * 4;
+
+                    // Binary logic
+                    if(score > 4)
+                    {
+                        var lightLevel = 255;
+                    }else{
+                        var lightLevel = 0;
+                    }
+                    
+
+                    data[index + 0] = lightLevel; // Red
+                        data[index + 1] = lightLevel; // Green
+                        data[index + 2] = lightLevel; // Blue
+                        data[index + 3] = 255; // Alpha (transparency)
+                }
+            }
+
+            // Overwrite the canvas with the updated data array
+            ctx.putImageData(imgData, 0, 0);
+        };
+
+        updateCanvas({x: width/2, y: height/2});; // Ensures something drawn on load
+
+        canvas.addEventListener("mousemove", function (e) {
+            var mousePosition = {x: e.layerX, y: e.layerY};
+            updateCanvas(mousePosition);
+        });
+    })();
+</script>
+```
+<canvas style="position: relative;" id="canvas_light_demo_5" width="600" height="300"></canvas>
+<script>
+    (function(){
+        var canvas = document.getElementById("canvas_light_demo_5");
+        canvas.style.cursor = 'none'; // Hide cursor
+
+        var ctx = canvas.getContext("2d");
+
+        var width = canvas.width;
+        var height = canvas.height;
+    
+        var staticLightSources = [{x: width/2, y: height/2}]; // Additional light sources, one at center, one a bottom right
+
+        var updateCanvas = function(mousePosition){
+        
+            var imgData = ctx.getImageData(0, 0, width, height);
+            var data = imgData.data;
 
             // Create a single array containing all light sources
             var allLights = staticLightSources.slice();

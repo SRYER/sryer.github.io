@@ -2,7 +2,6 @@
 - Analytics-konto
 
 - Js artikel:
-	- Se på firefox
 	- Ensart, så alle eksempler står med eller uden script
 	- Fix manglende kode i bunden
 	- Se om man evt kan lave dette smartere, så al kode ikke skal stå flere gange
