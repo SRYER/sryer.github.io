@@ -3,7 +3,6 @@
 
 - Js artikel:
 	- Ensart, så alle eksempler står med eller uden script
-	- Fix manglende kode i bunden
 	- Se om man evt kan lave dette smartere, så al kode ikke skal stå flere gange
 	- Tilføj fps counter lige efter mouse move eksemplet og brug fps counter i resten af eksemplerne
 	- Lav større canvas og demonstrer at fps falder

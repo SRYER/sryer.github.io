@@ -34,12 +34,11 @@ However, when performance is an issue, using manual pixel manipulation will get 
 Drawing a line using context:
 
 ```html
-<canvas style="position: relative;" id= "canvas_manual_drawing_demo" width="600" height="300"></canvas>
-```
-```js
+<canvas style="position: relative;" id= "canvas_manual_drawing_demo" width="600" height="300">
+</canvas>
+<script>
 var canvas = document.getElementById("canvas_manual_drawing_demo");
 var ctx = canvas.getContext("2d");
-
 // Fill rect
 ctx.fillStyle = "rgb(80,144,80)";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -50,6 +49,7 @@ ctx.beginPath();
 ctx.moveTo(0, 0);
 ctx.lineTo(300, 300);
 ctx.stroke();
+</script>
 ```
 
 Result:
@@ -143,9 +143,8 @@ data[index + 3] // Alpha (transparency) value of the x,y pixel. 0 = invisible, 2
 The following code will reproduce the line-drawing from previous, but this time using pixel manipulation:
 
 ```html
-<canvas style="position: relative;" id= "canvas_draw_line_with_pixelmanipulation_demo" width="600" height="300"></canvas>
-```
-```js 
+<canvas style="position: relative;" id= "canvas_draw_line_with_pixelmanipulation_demo" width="600" height="300">'
+</canvas>
 <script>
 // Grab the pixel data
 var width = canvas.width;
@@ -162,9 +161,7 @@ for(var x = 0; x < width; x++){
     for(var y = 0; y < height; y++){
         var index = (y * width + x) * 4;
 
-         // This is the actual decision on whether green or red should be drawn on point (x,y)
         var isPointOnLine = x == y;
-
         if(isPointOnLine){
             data[index + 0] = 144; // Red
             data[index + 1] = 90; // Green
@@ -185,7 +182,8 @@ ctx.putImageData(imgData, 0, 0);
 </script>
 ```
 
-<canvas style="position: relative;" id= "canvas_draw_line_with_pixelmanipulation_demo" width="600" height="300"></canvas>
+<canvas style="position: relative;" id= "canvas_draw_line_with_pixelmanipulation_demo" width="600" height="300">'
+</canvas>
 <script>
 // Grab the pixel data
 var width = canvas.width;
@@ -246,57 +244,60 @@ The event object 'e' contains layerX and layerY which is the position of the mou
 A working example of drawing a circle at the mouse position will look like this:
 
 ```html
-<canvas style="position: relative;" id= "canvas_mouse_move_demo" width="600" height="300"></canvas>
-```
-```js
+<canvas style="position: relative;" id= "canvas_mouse_move_demo" width="600" height="300">
+</canvas>
 <script>
-    var canvas = document.getElementById("canvas_mouse_move_demo");
-    canvas.style.cursor = 'none'; // Hide cursor
+    (function(){
+        var canvas = document.getElementById("canvas_mouse_move_demo");
+        canvas.style.cursor = 'none'; // Hide cursor
 
-    var ctx = canvas.getContext("2d");
+        var ctx = canvas.getContext("2d");
 
-    var width = canvas.width;
-    var height = canvas.height;
+        var width = canvas.width;
+        var height = canvas.height;
     
-    var updateCanvas = function(mousePosition){
-        var imgData = ctx.getImageData(0, 0, width, height);
-        var data = imgData.data;            
-        // Update the data array
-        for(var x = 0; x < width; x++){
+        var updateCanvas = function(mousePosition){
+            var imgData = ctx.getImageData(0, 0, width, height);
+            var data = imgData.data;            
+            // Update the data array
+            for(var x = 0; x < width; x++){
 
-            for(var y = 0; y < height; y++){
-                var index = (y * width + x) * 4;
+                for(var y = 0; y < height; y++){
+                    var index = (y * width + x) * 4;
 
-                var distanceToMouse = Math.sqrt((mousePosition.x - x)*(mousePosition.x - x) + (mousePosition.y - y)*(mousePosition.y - y));
-                if(distanceToMouse < 50){
-                    data[index + 0] = 144; // Red
-                    data[index + 1] = 90; // Green
-                    data[index + 2] = 90; // Blue
-                    data[index + 3] = 255; // Alpha (transparency)
-                }else{
-                    data[index + 0] = 90; // Red
-                    data[index + 1] = 144; // Green
-                    data[index + 2] = 90; // Blue
-                    data[index + 3] = 255; // Alpha (transparency)
+                    var distanceToMouse = Math.sqrt((mousePosition.x - x)*(mousePosition.x - x) + (mousePosition.y - y)*(mousePosition.y - y));
+                    if(distanceToMouse < 50){
+                        data[index + 0] = 144; // Red
+                        data[index + 1] = 90; // Green
+                        data[index + 2] = 90; // Blue
+                        data[index + 3] = 255; // Alpha (transparency)
+                    }else{
+                        data[index + 0] = 90; // Red
+                        data[index + 1] = 144; // Green
+                        data[index + 2] = 90; // Blue
+                        data[index + 3] = 255; // Alpha (transparency)
+                    }
                 }
             }
-        }
 
-        // Overwrite the canvas with the updated data array
-        ctx.putImageData(imgData, 0, 0);
-    };
+            // Overwrite the canvas with the updated data array
+            ctx.putImageData(imgData, 0, 0);
+        };
 
-    updateCanvas({x: width/2, y: height/2});; // Ensures something drawn on load
+        updateCanvas({x: width/2, y: height/2});; // Ensures something drawn on load
 
     
-    canvas.addEventListener("mousemove", function (e) {
-        var mousePosition = {x: e.layerX, y: e.layerY};
-        updateCanvas(mousePosition);
-    });
+        canvas.addEventListener("mousemove", function (e) {
+            var mousePosition = {x: e.layerX, y: e.layerY};
+            updateCanvas(mousePosition);
+            console.log(11);
+        });
+    })();
 </script>
 ```
 
-<canvas style="position: relative;" id= "canvas_mouse_move_demo" width="600" height="300"></canvas>
+<canvas style="position: relative;" id= "canvas_mouse_move_demo" width="600" height="300">
+</canvas>
 <script>
     (function(){
         var canvas = document.getElementById("canvas_mouse_move_demo");
@@ -353,9 +354,6 @@ Instead of draw/dont draw depending on whether the distance exceeds 50 (indicati
 
 ```html
 <canvas style="position: relative;" id= "canvas_light_demo" width="600" height="300"></canvas>
-```
-
-```js
 <script>
     (function(){
         var canvas = document.getElementById("canvas_light_demo");
@@ -464,10 +462,7 @@ We can now make the light a little bigger by changing the logic to this:
 
 
 ```html
-<canvas style="position: relative;" id= "canvas_light_demo" width="600" height="300"></canvas>
-```
-
-```js
+<canvas style="position: relative;" id= "canvas_light_demo_2" width="600" height="300"></canvas>
 <script>
     (function(){
         var canvas = document.getElementById("canvas_light_demo_2");
@@ -575,9 +570,6 @@ We can change the logic to be based on a list of light source; some static light
 
 ```html
 <canvas style="position: relative;" id= "canvas_light_demo_3" width="600" height="300"></canvas>
-```
-
-```js
 <script>
     (function(){
         var canvas = document.getElementById("canvas_light_demo_3");
@@ -608,7 +600,6 @@ We can change the logic to be based on a list of light source; some static light
                         var currentLight = allLights[i];
                         var distanceToLight = Math.sqrt((currentLight.x - x)*(currentLight.x - x) + (currentLight.y - y)*(currentLight.y - y));
                         
-                        distanceToLight = parseInt(distanceToLight); // Round, throwing away all decimals
                         if(distanceToLight < 1){
                             distanceToLight = 1; // Avoid division by 0 here
                         }
@@ -719,10 +710,8 @@ Now, instead of using the closest distance to determine a pixels light level, we
 
 ```html
 <canvas style="position: relative;" id= "canvas_light_demo_4" width="600" height="300"></canvas>
-```
-
-```js
-(function(){
+<script>
+    (function(){
         var canvas = document.getElementById("canvas_light_demo_4");
         canvas.style.cursor = 'none'; // Hide cursor
 
@@ -779,6 +768,7 @@ Now, instead of using the closest distance to determine a pixels light level, we
             updateCanvas(mousePosition);
         });
     })();
+</script>
 ```
 <canvas style="position: relative;" id= "canvas_light_demo_4" width="600" height="300"></canvas>
 <script>
@@ -850,9 +840,6 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
 
 ```html
 <canvas style="position: relative;" id="canvas_light_demo_5" width="600" height="300"></canvas>
-```
-
-```js
 <script>
     (function(){
         var canvas = document.getElementById("canvas_light_demo_5");
@@ -862,15 +849,13 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
 
         var width = canvas.width;
         var height = canvas.height;
-
-        console.log(width + " x " + height);
     
         var staticLightSources = [{x: width/2, y: height/2}]; // Additional light sources, one at center, one a bottom right
 
         var updateCanvas = function(mousePosition){
         
             var imgData = ctx.getImageData(0, 0, width, height);
-            var data = imgData.data;            
+            var data = imgData.data;
 
             // Create a single array containing all light sources
             var allLights = staticLightSources.slice();
@@ -923,6 +908,7 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
         });
     })();
 </script>
+
 ```
 <canvas style="position: relative;" id="canvas_light_demo_5" width="600" height="300"></canvas>
 <script>
