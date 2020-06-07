@@ -979,3 +979,9 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
         });
     })();
 </script>
+
+## Adding an fps counter
+
+To keep track on performance, a good idea is to have an fps counter showing how many frames can be drawn per second (with highest better).
+
+The idea
