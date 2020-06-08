@@ -25,7 +25,7 @@ CORRECT Way:
 
 ## Pixel manipulation vs context drawing
 
-When updating the canvas you can either use convenient drawing methods with a context object or you can do manual pixel manipulation. Both methods has pros and cons and whenever performance is not an issue, you may stick to context drawing instead for cleaner code.
+When updating the canvas you can either use convenient drawing methods with a context object or you can do manual pixel manipulation. Both methods have pros and cons and whenever performance is not an issue, you may stick to context drawing for cleaner code.
 
 However, when performance is an issue, using manual pixel manipulation will get you further.
 
@@ -88,7 +88,7 @@ var imgData = ctx.getImageData(0, 0, width, height);
 var data = imgData.data; // The actual array
 ```
 
-Say we have a 10 x 7 pixel canvas. Then the data array will be 10 x 7 x 4 pixels big. Then 'x 4' is because every pixel is represented as rgba data, having an int representing each value.
+Say we have a 10 x 7 pixel canvas. Then the data array will be of size 10 x 7 x 4 = 280. The 'x 4' is because every pixel is represented as rgba data, having an int representing each value.
 
 #### Pixel data format
 
@@ -952,18 +952,26 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
                     var index = (y * width + x) * 4;
 
                     // Binary logic
+                    var lightLevel = 0;
+                    if(score > 3.25)
+                    {
+                        lightLevel += 100;
+                    }
+
+                    if(score > 3.5)
+                    {
+                        lightLevel += 100;
+                    }
+
                     if(score > 4)
                     {
-                        var lightLevel = 255;
-                    }else{
-                        var lightLevel = 0;
+                        lightLevel += 55;
                     }
-                    
 
                     data[index + 0] = lightLevel; // Red
-                        data[index + 1] = lightLevel; // Green
-                        data[index + 2] = lightLevel; // Blue
-                        data[index + 3] = 255; // Alpha (transparency)
+                    data[index + 1] = lightLevel; // Green
+                    data[index + 2] = lightLevel; // Blue
+                    data[index + 3] = 255; // Alpha (transparency)
                 }
             }
 
@@ -984,4 +992,91 @@ A different, cool effect can be achieved by changing back logic to be draw/dont 
 
 To keep track on performance, a good idea is to have an fps counter showing how many frames can be drawn per second (with highest better).
 
-The idea
+I have googled, and choose to use the first thing I found: [stats.js](https://github.com/mrdoob/stats.js/)
+
+```script
+npm install stats.js
+```
+
+<canvas style="position: relative;" id="canvas_fps_demo" width="600" height="300"></canvas>
+<div id="stats_fps_demo"></div>
+<script>
+    (function(){
+        var stats = new Stats();
+        stats.showPanel( 1 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+        document.getElementById("stats_fps_demo").appendChild( stats.dom );
+
+        var canvas = document.getElementById("canvas_fps_demo");
+        canvas.style.cursor = 'none'; // Hide cursor
+
+        var ctx = canvas.getContext("2d");
+
+        var width = canvas.width;
+        var height = canvas.height;
+    
+        var staticLightSources = []; // Additional light sources, one at center, one a bottom right
+        var staticEntryCount = 4;
+        for(var i = 0; i < staticEntryCount; i++){
+            staticLightSources.push({x: width / staticEntryCount * i, y: 75});
+        }
+
+        var updateCanvas = function(mousePosition){
+        
+            stats.begin();
+
+            var imgData = ctx.getImageData(0, 0, width, height);
+            var data = imgData.data;
+
+            // Create a single array containing all light sources
+            var allLights = staticLightSources.slice();
+            allLights.push(mousePosition);
+
+            // Update the data array
+            for(var x = 0; x < width; x++){
+
+                for(var y = 0; y < height; y++){
+
+                    var score = 0;
+                    for(var i = 0; i < allLights.length; i++){
+                        var currentLight = allLights[i];
+                        var distanceToLight = Math.sqrt((currentLight.x - x)*(currentLight.x - x) + (currentLight.y - y)*(currentLight.y - y));
+                        if(distanceToLight < 1){
+                            distanceToLight = 1; // Avoid division by 0 here
+                        }
+
+                        // Add value to score based on distance
+                        score = score + 100 / distanceToLight;
+					}
+
+                    var index = (y * width + x) * 4;
+
+                    // Binary logic
+                    if(score > 4)
+                    {
+                        var lightLevel = 255;
+                    }else{
+                        var lightLevel = 0;
+                    }
+                    
+
+                    data[index + 0] = lightLevel; // Red
+                        data[index + 1] = lightLevel; // Green
+                        data[index + 2] = lightLevel; // Blue
+                        data[index + 3] = 255; // Alpha (transparency)
+                }
+            }
+
+            // Overwrite the canvas with the updated data array
+            ctx.putImageData(imgData, 0, 0);
+
+            stats.end();
+        };
+
+        updateCanvas({x: width/2, y: height/2});; // Ensures something drawn on load
+
+        canvas.addEventListener("mousemove", function (e) {
+            var mousePosition = {x: e.layerX, y: e.layerY};
+            updateCanvas(mousePosition);
+        });
+    })();
+</script>
