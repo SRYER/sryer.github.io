@@ -19,26 +19,12 @@
 
 - Skriv om sql finding:
 
-
-DECLARE @custId UNIQUEIDENTIFIER = '7d9f53e6-7ece-455f-94dd-fda82400e04d'
-
-DECLARE @limit INT = 10
-DECLARE @customerIdTable dbo.guidlist
-INSERT INTO @customerIdTable(VALUE) VALUES('7d9f53e6-7ece-455f-94dd-fda82400e04d')
-DECLARE @scheduledExecutionStart DATETIME = '2020-01-16'
-DECLARE @scheduledExecutionEnd DATETIME = '2020-06-30'
-
-DECLARE @minSummaryId bigint = -1
-DECLARE @maxSummaryId bigint = -1
-
-SELECT TOP (@limit) *
-FROM OutgoingMessages WITH(NOLOCK, INDEX(IX_OutgoingMessages_CustomerId_ScheduledExecutionDate))
-JOIN @customerIdTable CustomerIds ON OutgoingMessages.CustomerId = CustomerIds.Value
-WHERE ScheduledExecutionDate >= @scheduledExecutionStart AND ScheduledExecutionDate < @scheduledExecutionEnd
-ORDER BY ScheduledExecutionDate DESC
-
-SELECT TOP (@limit) *
-FROM OutgoingMessages WITH(NOLOCK, INDEX(IX_OutgoingMessages_CustomerId_ScheduledExecutionDate))
-WHERE ScheduledExecutionDate >= @scheduledExecutionStart AND ScheduledExecutionDate < @scheduledExecutionEnd
-and customerId = @custId
-ORDER BY ScheduledExecutionDate DESC
+- FPGA
+- New project
+	- Vælg project-type ud fra board
+	- Vælg pin-mapping-fil
+	
+- Programmering uden block design
+- Programmering med block design
+- Clock wizard
+- Pipelining
