@@ -13,7 +13,7 @@ Installation:
 
 - Create new project.
 
-  - In the following example I am creating a demo project for this blog post case	![image-20200707140826575](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707140826575.png)
+  - In the following example I am creating a demo project for this blog post case![image-20200707140826575](../assets/images/2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707140826575.png)
   - Choose RTL Project
     ![image-20200707141132821](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141132821.png)
   - Skip "add sources" step
