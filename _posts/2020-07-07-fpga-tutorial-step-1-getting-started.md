@@ -11,17 +11,36 @@ Installation:
 
   Link: , Direct download link: 
 
-- Create new project.
+- Create new project by following these steps:
 
-  - In the following example I am creating a demo project for this blog post case![image-20200707140826575](../assets/images/2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707140826575.png)
-  - Choose RTL Project
-    ![image-20200707141132821](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141132821.png)
-  - Skip "add sources" step
-    ![image-20200707141324614](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141324614.png)
-  - Add constraints-file. NOTE: Remember to flag "Copy constraints files into project".
-  - ![image-20200707141344027](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141344027.png)
-  - In the next section, switch to the "boards" pane, and search for basys3:
-    ![image-20200707142537551](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707142537551.png)
-  - Now click "Finish":
-    ![image-20200707142610193](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707142610193.png)
+  Create a new project and choose and project name and location![image-20200707140826575](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707140826575.png)
 
+  
+
+  Choose RTL Project
+  ![image-20200707141132821](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141132821.png)
+
+  
+
+  Skip "add sources" step
+  ![image-20200707141324614](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707141324614.png)
+
+  
+
+  Add constraints-file. NOTE: Remember to flag "Copy constraints files into project":![image-20200707144711100](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707144711100.png)
+
+  
+
+  In the next section, switch to the "boards" pane, and search for basys3:
+  ![image-20200707142537551](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707142537551.png)
+
+  
+
+  Now click "Finish":
+  ![image-20200707142610193](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707142610193.png)
+
+  
+
+  And now you have created your first project:
+
+  ![image-20200707144632000](2020-07-07-fpga-tutorial-step-1-getting-started.assets/image-20200707144632000.png)
