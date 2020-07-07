@@ -20,11 +20,9 @@
 - Skriv om sql finding:
 
 - FPGA
-- New project
-	- Vælg project-type ud fra board
-	- Vælg pin-mapping-fil
-	
-- Programmering uden block design
-- Programmering med block design
-- Clock wizard
-- Pipelining
+	- Loop og synthesis viewer, sammenligning af før og efter Loop
+	- Block design, clock wizard etc
+	- VGA output
+	- Using block ram
+	- Clock skew, logic depth. Example of division.
+	- Pipelining
