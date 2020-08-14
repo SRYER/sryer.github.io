@@ -35,3 +35,8 @@ I framework kan man undvære MultiSubnetFailover, fordi der findes TransparentNe
 
 I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen markant mere mærkbar end det er tilfældet i dotnet framework. https://docs.microsoft.com/en-us/sql/connect/odbc/using-transparent-network-ip-resolution?view=sql-server-ver15
 
+- Skriv om unittesting
+    - DataBaseTest
+       - Lock mod db'en
+       - Sørg for performance, det adder op
+       - Brug scoping i tests for at undgå typos i refs
