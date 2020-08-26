@@ -27,7 +27,6 @@
 	- Clock skew, logic depth. Example of division.
 	- Pipelining
 
-
 ALWAYSON og MultisubnetFailover
 - Skriv om AlwaysOn, dotnetcore/framework og MultisubnetFailover -
 
@@ -40,3 +39,6 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
        - Lock mod db'en
        - Sørg for performance, det adder op
        - Brug scoping i tests for at undgå typos i refs
+       - Avanceret setup med lokal db og flere database til parallele eksekvering
+
+- Skriv om cache busting-løsning
