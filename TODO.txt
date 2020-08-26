@@ -31,6 +31,7 @@ ALWAYSON og MultisubnetFailover
 - Skriv om AlwaysOn, dotnetcore/framework og MultisubnetFailover -
 
 I framework kan man undvære MultiSubnetFailover, fordi der findes TransparentNetworkIPResolution. Denne feature findes ikke i dotnet core: https://docs.microsoft.com/en-us/sql/connect/odbc/using-transparent-network-ip-resolution?view=sql-server-ver15
+ => TransparentNetworkIPResolution kan fælde dig, hvis du forventeligt skal bruge mere end 500ms på at forbinde til serveren.
 
 I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen markant mere mærkbar end det er tilfældet i dotnet framework. https://docs.microsoft.com/en-us/sql/connect/odbc/using-transparent-network-ip-resolution?view=sql-server-ver15
 
