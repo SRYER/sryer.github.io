@@ -43,3 +43,7 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
        - Avanceret setup med lokal db og flere database til parallele eksekvering
 
 - Skriv om cache busting-løsning
+- Must-have tools
+	- WinDirStat
+	- FileLocator
+	- Teracopy
