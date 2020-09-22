@@ -47,3 +47,9 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
 	- WinDirStat
 	- FileLocator
 	- Teracopy
+
+- Beskriv dream-team setup:
+  - Connection manager
+  - Custom data typer
+  - Selvstændige services, hvor data-laget blot er implementationsdetalje
+  - 
