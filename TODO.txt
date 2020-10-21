@@ -1,4 +1,4 @@
-
+- https://developercommunity.visualstudio.com/content/problem/816514/dependencies-of-project-reference-not-copied-to-ou.html
 - Analytics-konto
 
 - Js artikel:
