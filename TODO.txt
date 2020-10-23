@@ -52,4 +52,4 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
   - Connection manager
   - Custom data typer
   - Selvstændige services, hvor data-laget blot er implementationsdetalje
-  - 
+  - Test at alle controllers kan instantieres ved startup
