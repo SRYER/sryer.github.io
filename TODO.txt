@@ -54,3 +54,6 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
   - Selvstændige services, hvor data-laget blot er implementationsdetalje
   - Fail fast:  Test at alle controllers kan instantieres ved startup
   - Fail fast: Scanning af assemblies - nævn altid de assemblies der skal scannes specifikt (scanning af bin-folder giver risiko for inkonsistens as objekter scannet mellem tests og egentlig kode). Lad et scanning-kald fejle med det samme.
+
+- Skriv om batchedList/MaxSizedList-ideen
+- Have en SystemTime.UtcNow og brug den alle vegne
