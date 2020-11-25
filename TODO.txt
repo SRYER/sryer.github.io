@@ -1,39 +1,17 @@
 - https://developercommunity.visualstudio.com/content/problem/816514/dependencies-of-project-reference-not-copied-to-ou.html
 - Analytics-konto
 
-- Js artikel:
-	- Fix position af stats.js vindue
-	- Cache static-værdier i stedet for at beregne ved hvert refresh
-	- Cache statisk lyskilde for at vise performance
-
-- VM med photoshop
-- Pladespilleren
+C#
 - SQL Connection Manager
 - SQL Custom typer
-- What I have learned as a CTO
-- Opdagelsen af code golf: https://codegolf.stackexchange.com/questions/205638/dont-do-not-lowercase-uppercase-this
-- Why you should never ask other people if there are gonna have kids
-- AI til at lave musik
-- Hell March Live-video: https://www.youtube.com/watch?v=TrqQxl5o3eg
-- Guitar Shred
-
-- Skriv om sql finding:
-
-- FPGA
-	- Loop og synthesis viewer, sammenligning af før og efter Loop
-	- Block design, clock wizard etc
-	- VGA output
-	- Using block ram
-	- Clock skew, logic depth. Example of division.
-	- Pipelining
-
-ALWAYSON og MultisubnetFailover
-- Skriv om AlwaysOn, dotnetcore/framework og MultisubnetFailover -
-
+- ALWAYSON og MultisubnetFailove:- Skriv om AlwaysOn, dotnetcore/framework og MultisubnetFailover -
 I framework kan man undvære MultiSubnetFailover, fordi der findes TransparentNetworkIPResolution. Denne feature findes ikke i dotnet core: https://docs.microsoft.com/en-us/sql/connect/odbc/using-transparent-network-ip-resolution?view=sql-server-ver15
  => TransparentNetworkIPResolution kan fælde dig, hvis du forventeligt skal bruge mere end 500ms på at forbinde til serveren.
 
 I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen markant mere mærkbar end det er tilfældet i dotnet framework. https://docs.microsoft.com/en-us/sql/connect/odbc/using-transparent-network-ip-resolution?view=sql-server-ver15
+
+- Fail fast:  Test at alle controllers kan instantieres ved startup
+- Fail fast: Scanning af assemblies - scan aldrig en hel bin-folder. Nævn i stedet altid de assemblies der skal scannes specifikt (scanning af bin-folder giver risiko for inkonsistens as objekter scannet mellem tests og egentlig kode). Lad et scanning-kald fejle med det samme.
 
 - Skriv om unittesting
     - DataBaseTest
@@ -41,6 +19,33 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
        - Sørg for performance, det adder op
        - Brug scoping i tests for at undgå typos i refs
        - Avanceret setup med lokal db og flere database til parallele eksekvering
+
+- Brug aldrig GUID som PK i Sql
+- Skriv om batchedList/MaxSizedList-ideen
+- Have en SystemTime.UtcNow og brug den alle vegne
+- Overvej brugen BigInt fremfor Int hvis der skal være meget data
+
+Andet
+- Js artikel:
+	- Fix position af stats.js vindue
+	- Cache static-værdier i stedet for at beregne ved hvert refresh
+	- Cache statisk lyskilde for at vise performance
+
+- VM med photoshop
+- Pladespilleren
+- What I have learned as a CTO
+- Opdagelsen af code golf: https://codegolf.stackexchange.com/questions/205638/dont-do-not-lowercase-uppercase-this
+- Why you should never ask other people if there are gonna have kids
+- AI til at lave musik
+- Hell March Live-video: https://www.youtube.com/watch?v=TrqQxl5o3eg
+- Guitar Shred
+- FPGA
+	- Loop og synthesis viewer, sammenligning af før og efter Loop
+	- Block design, clock wizard etc
+	- VGA output
+	- Using block ram
+	- Clock skew, logic depth. Example of division.
+	- Pipelining
 
 - Skriv om cache busting-løsning
 - Must-have tools
@@ -52,8 +57,5 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
   - Connection manager
   - Custom data typer
   - Selvstændige services, hvor data-laget blot er implementationsdetalje
-  - Fail fast:  Test at alle controllers kan instantieres ved startup
-  - Fail fast: Scanning af assemblies - nævn altid de assemblies der skal scannes specifikt (scanning af bin-folder giver risiko for inkonsistens as objekter scannet mellem tests og egentlig kode). Lad et scanning-kald fejle med det samme.
+  
 
-- Skriv om batchedList/MaxSizedList-ideen
-- Have en SystemTime.UtcNow og brug den alle vegne
