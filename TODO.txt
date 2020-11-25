@@ -24,6 +24,7 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
 - Brug aldrig GUID som PK i Sql
 - Skriv om batchedList/MaxSizedList-ideen
 - Have en SystemTime.UtcNow og brug den alle vegne
+- Alle servere skal køre UTC tid altid
 - Overvej brugen BigInt fremfor Int hvis der skal være meget data
 
 Andet
