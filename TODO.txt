@@ -12,6 +12,7 @@ I mangel på TransparentNetworkIPResolution i dotnetcore bliver forskellen marka
 
 - Fail fast:  Test at alle controllers kan instantieres ved startup
 - Fail fast: Scanning af assemblies - scan aldrig en hel bin-folder. Nævn i stedet altid de assemblies der skal scannes specifikt (scanning af bin-folder giver risiko for inkonsistens as objekter scannet mellem tests og egentlig kode). Lad et scanning-kald fejle med det samme.
+- Always have a Create-object and an UpdateObject different from the read-model.
 
 - Skriv om unittesting
     - DataBaseTest
